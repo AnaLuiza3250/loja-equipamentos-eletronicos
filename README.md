@@ -36,34 +36,6 @@ O sistema categoriza os produtos por tipos, gerencia as especificações técnic
 
 ---
 
-## Estrutura de Banco de Dados
-
-O banco de dados conta com tabelas normalizadas e interligadas por relacionamentos `belongsTo` e `hasMany`:
-
-
----
-
-┌─────────────────┐             ┌────────────────────────┐
-│      tipos      │             │      equipamentos      │
-├─────────────────┤             ├────────────────────────┤
-│ id (PK)         │1           *│ id (PK)                │
-│ equipamento     ├────────────►│ tipos_id (FK)          │
-└─────────────────┘             │ fabricantes_id (FK)    │
-│ nome                   │
-┌─────────────────┐             │ preco                  │
-│   fabricantes   │             │ estoque                │
-├─────────────────┤             │ estoque_minimo         │
-│ id (PK)         │1           *│ image                  │
-│ nome            ├────────────►│ processador            │
-│ pais            │             │ memoria_ram            │
-└─────────────────┘             │ armazenamento          │
-│ tamanho_tela           │
-│ sistema_operacional    │
-└────────────────────────┘
-
-
----
-
 ## Tutorial de Instalação e Configuração
 
 Siga os passos abaixo para clonar o repositório e rodar o projeto localmente em sua máquina de desenvolvimento:
