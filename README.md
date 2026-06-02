@@ -1,5 +1,5 @@
 
-# 📱 Sistema de Controle de Estoque para Equipamentos Eletrônicos
+# Sistema de Controle de Estoque para Equipamentos Eletrônicos
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com)
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
@@ -12,7 +12,7 @@ O sistema categoriza os produtos por tipos, gerencia as especificações técnic
 
 ---
 
-##  Funcionalidades Implementadas (Critérios de Avaliação)
+##  Funcionalidades Implementadas
 
 * **Autenticação Segura (Breeze):** Sistema de Login, Registro e Logout totalmente funcional utilizando o ecossistema oficial `Laravel Breeze`.
 * **Rotas Protegidas:** Painel administrativo e telas de cadastro/edição completamente blindados através do Middleware `auth`.
