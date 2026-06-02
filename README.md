@@ -1,4 +1,4 @@
-```markdown
+
 # 📱 Sistema de Controle de Estoque para Equipamentos Eletrônicos
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com)
@@ -41,7 +41,7 @@ O sistema categoriza os produtos por tipos, gerencia as especificações técnic
 O banco de dados conta com tabelas normalizadas e interligadas por relacionamentos `belongsTo` e `hasMany`:
 
 
-```
+---
 
 ┌─────────────────┐             ┌────────────────────────┐
 │      tipos      │             │      equipamentos      │
