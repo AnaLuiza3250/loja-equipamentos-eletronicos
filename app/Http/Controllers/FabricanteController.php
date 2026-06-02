@@ -22,7 +22,7 @@ class FabricanteController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255|unique:fabricantes,nome',
-            'pais' => 'required|string|max:255', // Validação do País
+            'pais' => 'required|string|max:255', 
         ], [
             'nome.required' => 'O nome do fabricante é obrigatório.',
             'nome.unique'   => 'Este fabricante já está cadastrado.',
@@ -31,7 +31,7 @@ class FabricanteController extends Controller
 
         Fabricante::create([
             'nome' => $request->input('nome'),
-            'pais' => $request->input('pais'), // Salvando no banco
+            'pais' => $request->input('pais'), 
         ]);
 
         return redirect()->route('fabricantes.index')->with('success', 'Fabricante cadastrado com sucesso!');
@@ -46,7 +46,7 @@ class FabricanteController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255|unique:fabricantes,nome,' . $fabricante->id,
-            'pais' => 'required|string|max:255', // Validação do País
+            'pais' => 'required|string|max:255', 
         ], [
             'nome.required' => 'O nome do fabricante é obrigatório.',
             'nome.unique'   => 'Este fabricante já está cadastrado.',
@@ -55,7 +55,7 @@ class FabricanteController extends Controller
 
         $fabricante->update([
             'nome' => $request->input('nome'),
-            'pais' => $request->input('pais'), // Atualizando no banco
+            'pais' => $request->input('pais'),
         ]);
 
         return redirect()->route('fabricantes.index')->with('success', 'Fabricante atualizado com sucesso!');

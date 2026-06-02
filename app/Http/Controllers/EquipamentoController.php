@@ -10,35 +10,23 @@ use Illuminate\Support\Facades\Storage;
 
 class EquipamentoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(){
         $equipamentos = Equipamento::all();
         return view('equipamentos.index', compact('equipamentos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create(){
         $tipos = Tipo::all();
         $fabricantes = Fabricante::all();
         return view('equipamentos.create', compact('tipos', 'fabricantes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    /**
- * Store a newly created resource in storage.
- */
-    /**
-     * Store a newly created resource in storage.
-     */
+   
     public function store(Request $request)
 {
-    // 1. Validação dos dados
+   
     $dadosValidados = $request->validate([
         'nome'                => 'required|string|max:255',
         'preco'               => 'required',
@@ -55,20 +43,20 @@ class EquipamentoController extends Controller
         'sistema_operacional' => 'nullable|string|max:255',
     ]);
 
-    // 2. Upload da imagem
+   
     $imagePath = null;
     if ($request->hasFile('image')) {
         $imagePath = $request->file('image')->store('equipamentos', 'public');
     }
 
-    // 3. Criação mapeando chave estrangeira correta e novas colunas
+    
     Equipamento::create([
         'nome'                => $request->input('nome'),
         'preco'               => $request->input('preco'),
         'estoque'             => $request->input('estoque'),
         'detalhes'            => $request->input('detalhes'),
-        'tipos_id'            => $request->input('tipo_id'),       // Mapeado do form para a coluna certa
-        'fabricantes_id'      => $request->input('fabricante_id'),  // Mapeado do form para a coluna certa
+        'tipos_id'            => $request->input('tipo_id'),       
+        'fabricantes_id'      => $request->input('fabricante_id'),  
         'image'               => $imagePath,
         'processador'         => $request->input('processador'),
         'memoria_ram'         => $request->input('memoria_ram'),
@@ -80,17 +68,13 @@ class EquipamentoController extends Controller
 
     return redirect()->route('equipamentos.index')->with('success', 'Equipamento salvo com sucesso!');
 }
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(Equipamento $equipamento)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Equipamento $equipamento){
         $tipos = Tipo::all();
         $fabricantes = Fabricante::all();
@@ -102,18 +86,10 @@ class EquipamentoController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    /**
-     * Update the specified resource in storage.
-     */
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, Equipamento $equipamento)
 {
-    // 1. Validando os dados
+  
     $request->validate([
         'nome'                => 'required|string|max:255',
         'preco'               => 'required|numeric',
@@ -130,7 +106,7 @@ class EquipamentoController extends Controller
         'sistema_operacional' => 'nullable|string|max:255',
     ]);
 
-    // 2. Processa imagem
+    
     $imagePath = $equipamento->image;
     if ($request->hasFile('image')) {
         if ($equipamento->image && Storage::disk('public')->exists($equipamento->image)) {
@@ -139,7 +115,7 @@ class EquipamentoController extends Controller
         $imagePath = $request->file('image')->store('equipamentos', 'public');
     }
 
-    // 3. Atualizando incluindo os novos campos técnicos
+    
     $equipamento->update([
         'nome'                => $request->input('nome'),
         'fabricantes_id'      => $request->input('fabricantes_id'),
@@ -159,9 +135,7 @@ class EquipamentoController extends Controller
     return redirect()->route('equipamentos.index')->with('success', 'Equipamento atualizado com sucesso!');
 }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Equipamento $equipamento){
         $equipamento->delete();
 

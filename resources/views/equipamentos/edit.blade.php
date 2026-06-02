@@ -14,7 +14,7 @@
                         @csrf 
                         @method('PUT')
                    
-                        {{-- Linha 1: Nome do Equipamento --}}
+                        
                         <div>
                             <label for="nome" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                 Nome do Equipamento:
@@ -23,7 +23,7 @@
                                 class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                         </div>
 
-                        {{-- Linha 2: Preço e Estoque no mesmo nível --}}
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="preco" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                        {{-- Linha 3: Tipo e Fabricante --}}
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="tipos_id" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
@@ -78,7 +78,7 @@
                         <hr class="border-gray-200 dark:border-gray-700 my-2">
                         <p class="text-sm font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Especificações Técnicas</p>
 
-                        {{-- GRID DAS NOVAS ESPECIFICAÇÕES TÉCNICAS --}}
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {{-- Processador --}}
                             <div>
@@ -89,7 +89,7 @@
                                     class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                             </div>
 
-                            {{-- Memória RAM --}}
+                            
                             <div>
                                 <label for="memoria_ram" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                     Memória RAM:
@@ -98,7 +98,7 @@
                                     class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                             </div>
 
-                            {{-- Armazenamento --}}
+                            
                             <div>
                                 <label for="armazenamento" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                     Armazenamento:
@@ -107,7 +107,7 @@
                                     class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                             </div>
 
-                            {{-- Tamanho da Tela --}}
+                            
                             <div>
                                 <label for="tamanho_tela" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                     Tamanho da Tela:
@@ -116,7 +116,7 @@
                                     class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                             </div>
 
-                            {{-- Resolução da Câmera --}}
+                            
                             <div>
                                 <label for="resolucao_camera" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                     Resolução da Câmera:
@@ -125,7 +125,7 @@
                                     class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                             </div>
 
-                            {{-- Sistema Operacional --}}
+                            
                             <div>
                                 <label for="sistema_operacional" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                     Sistema Operacional:
@@ -137,7 +137,7 @@
 
                         <hr class="border-gray-200 dark:border-gray-700 my-2">
 
-                        {{-- Detalhes Gerais --}}
+                        
                         <div>
                             <label for="detalhes" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                 Detalhes / Descrição Adicional:
@@ -146,13 +146,13 @@
                                 class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm w-full px-4 py-2.5 text-sm transition duration-150">
                         </div>
 
-                        {{-- INPUT DE IMAGEM --}}
+                        
                         <div class="border-t border-gray-100 dark:border-gray-700/60 pt-4">
                             <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                                 Imagem do Equipamento:
                             </label>
 
-                            {{-- Mostrar imagem atual --}}
+                            
                             @if($equipamento->image)
                                 <div class="mb-4">
                                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Imagem cadastrada atualmente:</p>
@@ -172,14 +172,14 @@
                             </div>
                             <p class="mt-1.5 text-xs text-gray-400 dark:text-gray-500">PNG, JPG, GIF até 2MB (Deixe vazio caso não queira alterar a foto atual)</p>
                             
-                            {{-- Preview da nova imagem --}}
+                            
                             <div id="preview-container" class="mt-4 hidden">
                                 <p class="text-xs text-indigo-600 dark:text-indigo-400 mb-2 font-bold">Nova imagem selecionada:</p>
                                 <img id="preview" class="max-h-64 rounded-xl shadow-md border border-indigo-200" alt="Preview">
                             </div>
                         </div>
 
-                        {{-- Botão de Ação --}}
+                        
                         <div class="pt-4 border-t border-gray-100 dark:border-gray-700/60 flex justify-end">
                             <button type="submit" class="inline-flex items-center px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold text-xs uppercase tracking-widest active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 shadow-md shadow-indigo-200 dark:shadow-none">
                                  Atualizar Equipamento
@@ -193,7 +193,6 @@
     </div>
 
     <script>
-        // Sistema de Preview Refatorado
         const fileInput = document.getElementById('image');
         const previewContainer = document.getElementById('preview-container');
         const preview = document.getElementById('preview');

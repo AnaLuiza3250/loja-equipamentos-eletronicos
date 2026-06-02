@@ -7,26 +7,20 @@ use Illuminate\Http\Request;
 
 class TipoController extends Controller
 {
-    /**
-     * Exibir a listagem de tipos.
-     */
+    
     public function index()
     {
         $tipos = Tipo::all();
         return view('tipos.index', compact('tipos'));
     }
 
-    /**
-     * Exibir o formulário de criação de tipo.
-     */
+    
     public function create()
     {
         return view('tipos.create');
     }
 
-    /**
-     * Salvar um novo tipo no banco.
-     */
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -43,17 +37,13 @@ class TipoController extends Controller
         return redirect()->route('tipos.index')->with('success', 'Tipo de equipamento cadastrado com sucesso!');
     }
 
-    /**
-     * Exibir o formulário de edição de tipo.
-     */
+    
     public function edit(Tipo $tipo)
     {
         return view('tipos.edit', compact('tipo'));
     }
 
-    /**
-     * Atualizar os dados do tipo.
-     */
+    
     public function update(Request $request, Tipo $tipo)
     {
         $request->validate([
@@ -70,9 +60,7 @@ class TipoController extends Controller
         return redirect()->route('tipos.index')->with('success', 'Tipo de equipamento atualizado com sucesso!');
     }
 
-    /**
-     * Remover um tipo.
-     */
+    
     public function destroy(Tipo $tipo)
     {
         $tipo->delete();

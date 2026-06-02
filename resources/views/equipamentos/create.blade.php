@@ -13,13 +13,13 @@
                     <form method="POST" action="{{ route('equipamentos.store') }}" enctype="multipart/form-data" class="space-y-6"> 
                         @csrf 
                    
-                        {{-- Nome do Equipamento --}}
+                       
                         <div>
                             <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome do Equipamento:</label>
                             <input type="text" name="nome" id="nome" required value="{{ old('nome') }}" class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"> 
                         </div>
 
-                        {{-- Preço e Estoque --}}
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="preco" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Preço (R$):</label>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
 
-                        {{-- Tipo e Fabricante --}}
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="tipo_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tipo:</label>
@@ -61,7 +61,7 @@
 
                         <hr class="border-gray-200 dark:border-gray-700 my-6">
 
-                        {{-- SEÇÃO NOVA: ESPECIFICAÇÕES TÉCNICAS (Ficha Técnica) --}}
+                        
                         <div>
                             <h3 class="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-4">⚙️ Especificações Técnicas (Ficha Técnica)</h3>
                             
@@ -100,13 +100,13 @@
 
                         <hr class="border-gray-200 dark:border-gray-700 my-6">
 
-                        {{-- Descrição Geral / Observações --}}
+                        
                         <div>
                             <label for="detalhes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Observações / Detalhes Adicionais:</label>
                             <textarea name="detalhes" id="detalhes" rows="3" required class="border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full">{{ old('detalhes') }}</textarea>
                         </div>
 
-                        {{-- Upload da Imagem com Preview --}}
+                       
                         <div>
                             <div class="mt-2 mb-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Imagem do Equipamento:</label>
@@ -124,7 +124,7 @@
                             <img id="preview" class="mt-4 max-h-64 rounded-lg shadow-md border border-gray-200 dark:border-gray-700" style="display:none;" alt="Preview">
                         </div>
 
-                        {{-- Botão Salvar --}}
+                        
                         <div class="pt-2">
                             <button type="submit" class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 shadow-sm">
                                 Salvar Equipamento
@@ -137,7 +137,7 @@
         </div>
     </div>
 
-    {{-- Script de Preview --}}
+    
     <script>
         const fileInput = document.getElementById('image');
         const preview = document.getElementById('preview');

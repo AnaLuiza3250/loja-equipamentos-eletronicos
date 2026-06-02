@@ -12,8 +12,8 @@ class Equipamento extends Model
         'estoque',
         'detalhes',
         'image',
-        'fabricantes_id', // Corrigido para bater com o banco de dados
-        'tipos_id',       // Corrigido para bater com o banco de dados
+        'fabricantes_id', 
+        'tipos_id',       
         'processador',
         'memoria_ram',
         'armazenamento',

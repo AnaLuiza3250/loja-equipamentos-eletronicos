@@ -24,7 +24,7 @@
                     
                     <div class="overflow-x-auto">
                         <div class="w-full text-left">
-                            {{-- Cabeçalho da Tabela --}}
+                            
                             <div class="flex border-b border-gray-100 dark:border-gray-700 pb-3 text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
                                 <div class="w-24 px-4">ID</div>
                                 <div class="flex-1 px-4">Nome do Fabricante</div>
@@ -33,7 +33,7 @@
                                 <div class="w-44 px-4 text-right">Deletar</div>
                             </div>
                             
-                            {{-- Corpo da Tabela --}}
+                           
                             <div class="divide-y divide-gray-100 dark:divide-gray-700">
                                 @forelse($fabricantes as $fabricante)
                                     <div class="flex items-center justify-between py-3 hover:bg-gray-50/50 dark:hover:bg-gray-700/30 transition">

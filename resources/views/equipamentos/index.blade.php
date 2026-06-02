@@ -7,12 +7,13 @@
 
     <div class="py-12 bg-gray-50 dark:bg-gray-900 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        {{-- Nessa parte do alerta pedi ajuda à IA --}}
             
             @php
                 $itensCriticos = $equipamentos->where('estoque', '<=', 5);
             @endphp
 
-            {{-- Alerta de Estoque Crítico --}}
             @if($itensCriticos->count() > 0)
                 <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl dark:bg-red-950/40 dark:border-red-600 shadow-sm">
                     <div class="flex items-start">
@@ -40,26 +41,25 @@
                 </div>
             @endif
 
-            {{-- Cabeçalho da Lista --}}
+            
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b border-gray-200 dark:border-gray-700 pb-5">
                 <div>
                     <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">Painel de Equipamentos</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Gerencie os dispositivos cadastrados no sistema.</p>
                 </div>
                 
                 <div class="flex-shrink-0">
                     <a href="{{ route('equipamentos.create') }}" class="inline-flex items-center justify-center px-4 py-2 bg-purple-600 border border-transparent rounded-xl font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 shadow-md shadow-indigo-200 dark:shadow-none whitespace-nowrap">
-                        ➕ Novo Equipamento
+                        Novo Equipamento
                     </a>
                 </div>
             </div>
 
-            {{-- VITRINE EM GRID DE CARDS --}}
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach($equipamentos as $equipamento)
                     <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group">
                         
-                        {{-- Container da Imagem --}}
+                       
                         <div class="relative bg-gray-100 dark:bg-gray-900 aspect-[4/3] w-full overflow-hidden border-b border-gray-100 dark:border-gray-700/50 flex items-center justify-center">
                             @if($equipamento->image)
                                 <img src="{{ asset('storage/' . $equipamento->image) }}" alt="{{ $equipamento->nome }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
@@ -68,21 +68,21 @@
                                     <svg class="w-10 h-10 stroke-current" fill="none" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
-                                    <span class="text-xs font-medium">Nenhuma foto cadastrada</span>
+                                    <span class="text-xs font-medium">Nenhuma foto</span>
                                 </div>
                             @endif
                         </div>
 
-                        {{-- Corpo das Informações --}}
+                        
                         <div class="p-5 flex-1 flex flex-col">
-                            {{-- Tipo e Fabricante --}}
+                            
                             <div class="flex gap-2 items-center text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1.5 uppercase tracking-wider">
                                 <span>{{ $equipamento->tipo->equipamento ?? 'Dispositivo' }}</span>
                                 <span class="text-gray-300 dark:text-gray-600">•</span>
                                 <span class="text-gray-600 dark:text-gray-300">{{ $equipamento->fabricante->nome ?? 'S/F' }}</span>
                             </div>
 
-                            {{-- Nome do Produto --}}
+                            
                             <h4 class="text-base font-bold text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                 {{ $equipamento->nome }}
                             </h4>
@@ -107,7 +107,7 @@
 
                             <br>
 
-                            {{-- NOVO: Especificações Técnicas (Ficha Técnica Dinâmica) --}}
+                            
                             <div class="bg-gray-50/70 dark:bg-gray-900/40 border border-gray-100 dark:border-gray-700/40 rounded-xl p-3 mb-3 text-[11px] space-y-1.5">
                                 @if($equipamento->processador)
                                     <div class="flex justify-between"><span class="text-gray-400 dark:text-gray-500">Processador:</span> <span class="font-medium text-gray-700 dark:text-gray-300">{{ $equipamento->processador }}</span></div>
@@ -131,12 +131,12 @@
 
                             <br>
 
-                            {{-- Descrição / Detalhes Gerais --}}
+                           
                             <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1">
                                 {{ $equipamento->detalhes }}
                             </p>
 
-                            {{-- Preço --}}
+                            
                             <div class="pt-3 border-t border-gray-100 dark:border-gray-700/50 flex items-baseline justify-between mb-4">
                                 <span class="text-xs text-gray-400 dark:text-gray-500 font-medium">Preço Unitário</span>
                                 <span class="text-lg font-black text-gray-900 dark:text-gray-100">
@@ -144,7 +144,7 @@
                                 </span>
                             </div>
 
-                            {{-- Ações de Editar e Excluir --}}
+                            
                             <div class="grid grid-cols-2 gap-2.5 pt-1">
                                 <a href="{{ route('equipamentos.edit', $equipamento) }}" class="inline-flex items-center justify-center px-3 py-2 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700/50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl text-xs font-bold transition duration-150">
                                      Editar
